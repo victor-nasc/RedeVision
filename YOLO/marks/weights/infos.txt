@@ -1,0 +1,33 @@
+
+
+DATASET 
+
+33 imagens VR dos videos 2, 3 e 4 
+VR de 30 segundos em momentos aleatórios de cada vídeo
+Augmentation: Flip Horizontal e Vertical | Crop 0% a 25%
+Totalizando 79 imagens
+
+https://universe.roboflow.com/victor-nascimento-ribeiro-xn4bn/mancha
+
+=======================================================================
+
+TREINAMENTO 
+  model=yolov8s.pt  (talvez trocar pro yolov8n no futuro)
+  task=detect 
+  mode=train 
+  epochs=75 
+  batch=8 
+
+* outros hiperparametros deixei o padrão do YOLO
+mAP0.5 == 0.99136
+mAP0.5:0.95 == 0.60865 
+ver ./Rede/results.csv
+  
+=======================================================================
+  
+PREDICT
+  task=detect 
+  mode=predict 
+  model=.../best.pt 
+  conf=0.35 
+  iou=0.2
